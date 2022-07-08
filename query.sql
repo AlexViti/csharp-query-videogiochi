@@ -32,6 +32,7 @@ SELECT DISTINCT videogame_id FROM category_videogame WHERE category_id = 2 OR ca
 -- 8- Selezionare tutte le recensioni con voto compreso tra 2 e 4 (2947)
 
 SELECT * FROM reviews WHERE rating BETWEEN 2 AND 4;
+
 -- 9- Selezionare tutti i dati dei videogiochi rilasciati nell'anno 2020 (46)
 
 SELECT * FROM videogames WHERE YEAR(release_date) = 2020;
@@ -43,10 +44,13 @@ SELECT DISTINCT videogame_id FROM reviews WHERE rating = 5;
 -- *********** BONUS ***********
 -- 
 -- 11- Selezionare il numero e la media delle recensioni per il videogioco con ID = 412 (review number = 12, avg_rating = 3)
+
+SELECT COUNT(*) AS review_number, AVG(rating) AS avg_rating FROM reviews WHERE videogame_id = 412;
 -- 
 -- 12- Selezionare il numero di videogame che la software house con ID = 1 ha rilasciato nel 2018 (13)
--- ```
--- 
+
+SELECT COUNT(*) AS [videogames released in 2018 by Nintendo] FROM videogames WHERE YEAR(release_date) = 2018 AND software_house_id = 1; 
+
 -- ------ Query con group by
 -- 
 -- ```
