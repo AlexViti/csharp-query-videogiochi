@@ -68,11 +68,15 @@ SELECT pegi_label_id, COUNT(*) AS [number of videogames] FROM pegi_label_videoga
 -- 4- Mostrare il numero di videogiochi rilasciati ogni anno (11)
 
 SELECT YEAR(release_date) AS [year], COUNT(*) AS [videogames number] FROM videogames GROUP BY YEAR(release_date);
+
 -- 5- Contare quanti videogiochi sono disponbiili per ciascun device (del device vogliamo solo l'ID) (7)
--- 
+
+SELECT device_id, COUNT(*) AS videogames FROM device_videogame GROUP BY device_id;
+
 -- 6- Ordinare i videogame in base alla media delle recensioni (del videogioco vogliamo solo l'ID) (500)
--- ```
--- 
+
+SELECT videogame_id, AVG(CAST(rating AS decimal(10,2))) AS ratingAVG FROM reviews GROUP BY videogame_id ORDER BY ratingAVG DESC;
+
 -- ------ Query con join
 -- 
 -- ```
